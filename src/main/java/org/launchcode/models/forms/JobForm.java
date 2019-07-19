@@ -43,12 +43,11 @@ public class JobForm {
     public JobForm() {
 
         JobData jobData = JobData.getInstance();
-
-        /*
-            TODO #4 - populate the other ArrayList collections needed in the view
-        */
-
+        
         employers = jobData.getEmployers().findAll();
+        locations = jobData.getLocations().findAll();
+        coreCompetencies = jobData.getCoreCompetencies().findAll();
+        positionTypes = jobData.getPositionTypes().findAll();
 
     }
 
