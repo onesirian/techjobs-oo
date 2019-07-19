@@ -24,7 +24,6 @@ public class JobController {
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String index(Model model, int id) {
 
-
         model.addAttribute("name", jobData.findAll().get(id).getName());
         model.addAttribute("employer", jobData.findAll().get(id).getEmployer());
         model.addAttribute("location", jobData.findAll().get(id).getLocation());
@@ -43,9 +42,6 @@ public class JobController {
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String add(Model model, @Valid JobForm jobForm, Errors errors) {
 
-        // TODO #6 - Validate the JobForm model, and if valid, create a
-        // new Job and add it to the jobData data store. Then
-        // redirect to the job detail view for the new Job.
 
         if (errors.hasErrors()) {
             System.out.println("Errors = " + errors.getAllErrors().toString());
@@ -59,8 +55,7 @@ public class JobController {
         newJob.setLocation(jobData.getLocations().findById(jobForm.getLocationId()));
         newJob.setPositionType(jobData.getPositionTypes().findById(jobForm.getPositionTypeId()));
         newJob.setCoreCompetency(jobData.getCoreCompetencies().findById(jobForm.getCoreCompetencyId()));
-
-        //add newJobs to jobData
+        
         jobData.add(newJob);
 
         model.addAttribute("name", newJob.getName());
