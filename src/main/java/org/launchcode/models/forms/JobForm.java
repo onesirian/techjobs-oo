@@ -43,7 +43,7 @@ public class JobForm {
     public JobForm() {
 
         JobData jobData = JobData.getInstance();
-        
+
         employers = jobData.getEmployers().findAll();
         locations = jobData.getLocations().findAll();
         coreCompetencies = jobData.getCoreCompetencies().findAll();
